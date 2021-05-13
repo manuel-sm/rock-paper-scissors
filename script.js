@@ -25,7 +25,7 @@ buttons.forEach((button) => {
 });
 
 reset.addEventListener("click", () => {
-  main.style.display = "flex";
+  main.style.display = "grid";
   selection.style.display = "none";
 });
 

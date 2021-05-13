@@ -65,12 +65,11 @@ h4 {
 
 main {
   height: 350px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "btn1 btn2"
+    "btn3 btn3" !important;
   position: relative;
 }
 
@@ -98,10 +97,6 @@ main::before {
   cursor: pointer;
 }
 
-.btn-circle:last-child {
-  transform: translateY(-25%);
-}
-
 .btn-circle:active {
   transform: scale(0.9);
 }
@@ -118,6 +113,9 @@ main::before {
 }
 
 .btn-paper {
+  grid-area: btn1;
+  align-self: center;
+  justify-self: center;
   background: linear-gradient(
     to bottom,
     hsl(230, 89%, 62%),
@@ -126,10 +124,16 @@ main::before {
 }
 
 .btn-scissors {
+  grid-area: btn2;
+  align-self: center;
+  justify-self: center;
   background: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 }
 
 .btn-rock {
+  grid-area: btn3;
+  justify-self: center;
+  margin-top: 2rem;
   background: linear-gradient(
     to bottom,
     hsl(349, 71%, 52%),
@@ -242,24 +246,28 @@ main::before {
     top: 50%;
     left: 50%;
     transform: translate(-53%, -33%);
-    height: 60%;
-    width: 28%;
+    height: 75%;
+    width: 50%;
   }
 
   main {
     width: 60vw;
+    margin: 0 auto;
   }
 
   .btn-circle {
     width: 130px;
     height: 130px;
-    margin: 40px 50
-    324\px;
   }
 
   .btn-circle .wrapper {
     width: 100px;
     height: 100px;
+  }
+
+  .selection__playAgain {
+    order: 0;
+    margin-top: 4rem;
   }
 }
 
@@ -267,6 +275,10 @@ main::before {
   header {
     width: 60vw;
     margin: 3rem auto;
+  }
+
+  header h1 {
+    font-size: 2rem;
   }
 
   main::before {
@@ -278,13 +290,38 @@ main::before {
   }
 
   main {
+    display: grid;
+    grid-template-columns: 15% 35% 35% 15%;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "a btn1 btn2 b"
+      "c btn3 btn3 d" !important;
     width: 60vw;
+    height: 450px;
+    margin: 0 auto;
+  }
+
+  .btn-paper {
+    grid-area: btn1;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .btn-scissors {
+    grid-area: btn2;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .btn-rock {
+    grid-area: btn3;
+    justify-self: center;
+    margin-top: 1rem;
   }
 
   .btn-circle {
     width: 150px;
     height: 150px;
-    margin: 40px 62px;
   }
 
   .btn-circle .wrapper {
